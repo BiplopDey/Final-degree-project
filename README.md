@@ -7,3 +7,7 @@ For linear codes, coding and decoding has been studied, and for nonlinear codes 
 The second part has consisted of learning the MAGMA system and its library for linear codes, as well as the Q-ARY CODES library. 
 In the third part the functions by using different algorithms have been implemented, according to the theory of the first part. 
 Finally, the functions have been validated and performance studies have been performed to determine which algorithm for each function is the best, using the q-ary codes library.
+
+## About the project
+
+The project consited of adding new funtion to the Univeristy's Q-ARY CODES library within MAGMA for the department of computer science, under the supervision of Phd Mercè Villanueva.
