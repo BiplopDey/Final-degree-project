@@ -22,7 +22,7 @@ Black box unit test and performance test of the functions:
 
 ## Stack
 - [Magma](http://magma.maths.usyd.edu.au/magma/) is a large, well-supported software package designed for computations in algebra, number theory, algebraic geometry and algebraic combinatorics.
-- [LaTeX] is a high-quality typesetting system; it includes features designed for the production of technical and scientific documentation.
+- [LaTeX](https://www.latex-project.org/) is a high-quality typesetting system; it includes features designed for the production of technical and scientific documentation.
 - Visual Studio Code for editing.
 - University's remote server to run the tests.
 
