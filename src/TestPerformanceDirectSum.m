@@ -1,10 +1,10 @@
 /****************************************************************/
 /*                                                              */
 /* Project name: Qary nonlinear codes in MAGMA	                */
-/* Test file name:   TestPerformancePlotkinSum.m                */
+/* Test file name:   TestPerformanceDirectSum.m                */
 /*                                                            	*/
-/* Comments: Performance test for the function Plotkin sum      */
-/*           included in the QaryCodes_ConstructionsBiplop.m    */
+/* Comments: Performance test for the function Direct sum      */
+/*           included in the QaryCodes_Constructions.m    */
 /*           file                                               */
 /*                                                              */
 /* Authors: Biplop Dey and M. Villanueva                        */
@@ -17,31 +17,31 @@
 Attach("QaryCodes_Core.m");
 Attach("QaryCodes_Extension.m");
 Attach("QaryCodes_Distances.m");
-Attach("QaryCodes_ConstructionsBiplop.m");
+Attach("QaryCodes_Constructions.m");
 
 /****************************************************************/
 /*                                                              */
-/* Function name: TestPerformancePlotkinSum                     */
+/* Function name: TestPerformanceDirectSum                     */
 /* Parameters: C, D, typeAlgMethod                              */
 /* Procedure description: Construct the test performance        */
-/*    of the Plotkin sum                                        */
+/*    of the Direct sum                                        */
 /* Input parameters description:                                */
 /*   - C: A q-ary code                                          */
 /*   - D: A q-ary code                                          */
 /*   - typeAlgMethod: Method to test the performance            */
 /* Output parameters description:                               */
-/*   - Average time of 20 reptitions of the Plotkin sum         */
+/*   - Average time of 20 reptitions of the Direct sum         */
 /*     construction                                             */
 /*                                                              */
 /****************************************************************/
-function TestPerformancePlotkinSum(C, D, typeAlgMethod) 
+function TestPerformanceDirectSum(C, D, typeAlgMethod) 
 
     tstart := Cputime();
     for iteration in [1..20] do
         if typeAlgMethod eq "BruteForce" then
-            plotkinSumCode :=  PlotkinSumBF(C, D);
+            directSumCode :=  DirectSumBF(C, D);
         else
-            plotkinSumCode :=  PlotkinSum(C, D);
+            directSumCode :=  DirectSum(C, D);
         end if;
     end for;
     tend := Cputime(tstart);
@@ -61,7 +61,7 @@ end function;
 /*   - D: A q-ary code                                          */    
 /*   - methods: Array that has the execution                    */                              
 /*   - timeVersions: Array that has the execution time for the  */
-/*                  different methods of Plotkin sum            */
+/*                  different methods of Direct sum            */
 /*                                                              */   
 /****************************************************************/
 procedure DrawChart(C, D, methods, timeVersions)
@@ -83,7 +83,7 @@ end procedure;
 /* Function name: TestAllMethods                                */
 /* Parameters: fileOutput, methods, C, D                        */
 /* Function description: Given C and D q-ary codes compute the  */
-/* average time spending of constricting Plotking sum in each   */
+/* average time spending of constricting Direct sum in each   */
 /* method.                                                      */     
 /* Input parameters description:                                */
 /*   - fileOutput: Name of the file where the outputs of the    */ 
@@ -103,7 +103,7 @@ procedure TestAllMethods(fileOutput, methods, C, D)
     timeVersions := [];    
     SetOutputFile(fileOutput);
     for method in methods do
-        TF := TestPerformancePlotkinSum(C, D, method);
+        TF := TestPerformanceDirectSum(C, D, method);
         Append(~timeVersions, TF);
     end for;
 
